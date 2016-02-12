@@ -105,33 +105,6 @@ namespace CodeCake
                     } );
                 } );
 
-
-            Task( "Sign-Assemblies" )
-                .IsDependentOn( "Unit-Testing" )
-                .WithCriteria( () => gitInfo.IsValidRelease )
-                .Does( () =>
-                {
-                    var assembliesToSign = projectsToPublish
-                               .Select( p => p.Path.GetDirectory() + "/bin/" + configuration + "/" + p.Name.Replace( ".Net40", "" ) )
-                               .SelectMany( p => new[] { p + ".dll", p + ".exe" } )
-                               .Where( p => Cake.FileExists( p ) );
-
-                    if( secureFilePassPhrase == null )
-                        secureFilePassPhrase = Cake.InteractiveEnvironmentVariable( "SECURE_FILE_PASSPHRASE" );
-                    if( string.IsNullOrEmpty( secureFilePassPhrase ) ) throw new InvalidOperationException( "Could not resolve SECURE_FILE_PASSPHRASE." );
-
-                    using( TemporaryFile pfx = Cake.SecureFileUncrypt( "CodeCakeBuilder/Invenietis-Authenticode.pfx.enc", secureFilePassPhrase ) )
-                    {
-                        var signSettingsForRelease = new SignToolSignSettings()
-                        {
-                            TimeStampUri = new Uri( "http://timestamp.verisign.com/scripts/timstamp.dll" ),
-                            CertPath = pfx.Path,
-                            Password = Cake.InteractiveEnvironmentVariable( "AUTHENTICODE_PASSPHRASE" )
-                        };
-                        Cake.Sign( assembliesToSign, signSettingsForRelease );
-                    }
-                } );
-
             Task( "Create-NuGet-Packages" )
                 .IsDependentOn( "Sign-Assemblies" )
                 .IsDependentOn( "Unit-Testing" )

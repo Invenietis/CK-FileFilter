@@ -10,10 +10,10 @@
     <projectUrl>https://github.com/Invenietis/ck-globbing</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>
-      Packing with globbing and file filtering for Cake.
+      Packer with globbing and file filtering for Cake.
     </summary>
     <description>
-      Packing with globbing and file filtering for Cake.
+      Packer with globbing and file filtering for Cake.
     </description>
     <language>en-US</language>
     <tags>CK, Cake, Pack</tags>
