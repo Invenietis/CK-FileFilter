@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata minClientVersion="2.8">
+    <id>Cake.CK.Pack</id>
+    <version>$version$</version>
+    <title>Cake.CK.Pack</title>
+    <authors>Invenietis</authors>
+    <owners>Invenietis</owners>
+    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+    <projectUrl>https://github.com/Invenietis/ck-globbing</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>
+      Packer with globbing and file filtering for Cake.
+    </summary>
+    <description>
+      Packer with globbing and file filtering for Cake.
+    </description>
+    <language>en-US</language>
+    <tags>CK, Cake, Pack</tags>
+    <developmentDependency>false</developmentDependency>
+    <releaseNotes>https://github.com/Invenietis/ck-globbing/releases</releaseNotes>
+    <dependencies>
+      <dependency id="CK.Core" version="$version$" />
+      <dependency id="CK.Globbing" version="$version$" />
+      <dependency id="Cake.Common" version="$version$" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="Cake.CK.Pack\bin\{{configuration}}\Cake.CK.Pack.dll" target="lib\net45" />
+    <file src="Cake.CK.Pack\bin\{{configuration}}\Cake.CK.Pack.pdb" target="lib\net45" />
+  </files>
+
+</package>
