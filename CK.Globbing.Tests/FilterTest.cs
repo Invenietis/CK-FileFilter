@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 
-namespace CK.FileFilter.Tests
+namespace CK.Globbing.Tests
 {
     [TestFixture]
     public class FilterTest

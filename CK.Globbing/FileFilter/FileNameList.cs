@@ -5,7 +5,7 @@ using System.Text;
 using CK.Core;
 using System.Diagnostics;
 
-namespace CK.FileFilter
+namespace CK.Globbing
 {
         /// <summary>
         /// Holds a compiled list of <see cref="Files"/> and an optional list of <see cref="Directories"/>. 

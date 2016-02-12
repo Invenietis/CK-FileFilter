@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace CK.FileFilter
+namespace CK.Globbing
 {
     public interface IVirtualFileStorage : IDisposable
     {

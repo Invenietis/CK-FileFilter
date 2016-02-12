@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CK.FileFilter.Tests")]
+[assembly: AssemblyTitle("CK.Globbing")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CK.FileFilter.Tests")]
+[assembly: AssemblyProduct("CK.Globbing")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2559e66d-dc9d-4ae8-8a40-8f2a349c9309")]
+[assembly: Guid("20552ede-22f1-4f39-b835-d7e73f68b328")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -5,7 +5,7 @@ using System.Text;
 using System.Collections.ObjectModel;
 using System.Runtime;
 
-namespace CK.FileFilter
+namespace CK.Globbing
 {
 
     /// <summary>

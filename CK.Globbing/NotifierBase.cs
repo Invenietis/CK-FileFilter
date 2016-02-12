@@ -5,7 +5,7 @@ using System.Text;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace CK.FileFilter
+namespace CK.Globbing
 {
     public class NotifierBase : INotifyPropertyChanged
     {

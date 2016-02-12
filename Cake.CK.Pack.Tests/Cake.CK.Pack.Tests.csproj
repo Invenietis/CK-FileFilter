@@ -102,9 +102,9 @@
       <Project>{c4e4712b-4ac0-4dcc-ac62-dcb9e22d6218}</Project>
       <Name>Cake.CK.Pack</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CK.FileFilter\CK.FileFilter.csproj">
+    <ProjectReference Include="..\CK.Globbing\CK.Globbing.csproj">
       <Project>{ed4782cb-79ed-41df-814a-be33146c6824}</Project>
-      <Name>CK.FileFilter</Name>
+      <Name>CK.Globbing</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

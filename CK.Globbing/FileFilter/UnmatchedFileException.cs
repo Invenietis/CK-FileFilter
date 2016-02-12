@@ -5,7 +5,7 @@ using System.Text;
 using CK.Core;
 using System.Runtime.Serialization;
 
-namespace CK.FileFilter
+namespace CK.Globbing
 {
     [Serializable]
     public class UnmatchedFileException : Exception

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CK.FileFilter", "CK.FileFilter\CK.FileFilter.csproj", "{ED4782CB-79ED-41DF-814A-BE33146C6824}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CK.Globbing", "CK.Globbing\CK.Globbing.csproj", "{ED4782CB-79ED-41DF-814A-BE33146C6824}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CK.FileFilter.Tests", "CK.FileFilter.Tests\CK.FileFilter.Tests.csproj", "{9D916D10-859E-4CE3-96D3-40E122FFBE09}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CK.Globbing.Tests", "CK.Globbing.Tests\CK.Globbing.Tests.csproj", "{9D916D10-859E-4CE3-96D3-40E122FFBE09}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6C306988-3605-4D70-BC42-F8FE4606D46B}"
 	ProjectSection(SolutionItems) = preProject

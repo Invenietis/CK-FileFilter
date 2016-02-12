@@ -4,17 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9D916D10-859E-4CE3-96D3-40E122FFBE09}</ProjectGuid>
+    <ProjectGuid>{ED4782CB-79ED-41DF-814A-BE33146C6824}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CK.FileFilter.Tests</RootNamespace>
-    <AssemblyName>CK.FileFilter.Tests</AssemblyName>
+    <RootNamespace>CK.Globbing</RootNamespace>
+    <AssemblyName>CK.Globbing</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    <StartAction>Program</StartAction>
-    <StartProgram>$(SolutionDir)\packages\NUnit.Runners.2.6.4\tools\nunit.exe</StartProgram>
-    <StartArguments>CK.FileFilter.Tests.dll</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,9 +34,6 @@
     <Reference Include="CK.Core">
       <HintPath>..\packages\CK.Core.4.2.0\lib\net45\CK.Core.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
@@ -50,32 +44,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileNameFilterTests.cs" />
-    <Compile Include="FilterTest.cs" />
+    <Compile Include="FileFilter\FileGroupTarget.cs" />
+    <Compile Include="FileFilter\FileNameFilter.cs" />
+    <Compile Include="FileFilter\FileNameList.cs" />
+    <Compile Include="FileFilter\PathFilterList.cs" />
+    <Compile Include="FileFilter\FilteredObservableCollection.cs" />
+    <Compile Include="FileFilter\PathFilter.cs" />
+    <Compile Include="FileFilter\SortedStringArray.cs" />
+    <Compile Include="FileFilter\UnmatchedFileException.cs" />
+    <Compile Include="NotifierBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestHelper.cs" />
-    <Compile Include="ZipTests.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ZipTests\ANewTextDocument.txt" />
-    <Content Include="ZipTests\Folder\AnotherTextInFolder.txt" />
-    <Content Include="ZipTests\Folder\Sub\NewDoc.txt" />
-    <Content Include="ZipTests\Folder\TextInFolder.txt" />
-    <Content Include="ZipTests\TextDocument.txt" />
+    <Compile Include="VirtualFileStorage\IVirtualFileStorage.cs" />
+    <Compile Include="VirtualFileStorage\TrackedStream.cs" />
+    <Compile Include="VirtualFileStorage\VirtualFileStorage.cs" />
+    <Compile Include="VirtualFileStorage\VirtualFileStorageDriver.cs" />
+    <Compile Include="VirtualFileStorage\VirtualFileStorageDriverRoot.cs" />
+    <Compile Include="VirtualFileStorage\VirtualFileStorageDriverRootZip.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="ZipTests\Folder\FolderHasBeenZipped.zip" />
-    <None Include="ZipTests\src.zip" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CK.FileFilter\CK.FileFilter.csproj">
-      <Project>{ed4782cb-79ed-41df-814a-be33146c6824}</Project>
-      <Name>CK.FileFilter</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

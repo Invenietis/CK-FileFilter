@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
-namespace CK.FileFilter
+namespace CK.Globbing
 {
     /// <summary>
     /// Tri-state result of a file matching on multiple <see cref="PathFilter"/>.

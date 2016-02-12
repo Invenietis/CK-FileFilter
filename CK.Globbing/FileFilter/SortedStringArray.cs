@@ -5,7 +5,7 @@ using System.Text;
 using CK.Core;
 using System.Diagnostics;
 
-namespace CK.FileFilter
+namespace CK.Globbing
 {
     /// <summary>
     /// Offers efficient methods for sorted string arrays.

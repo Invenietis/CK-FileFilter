@@ -5,7 +5,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CK.FileFilter;
+using CK.Globbing;
 using NUnit.Framework;
 
 namespace Cake.CK.Pack.Tests

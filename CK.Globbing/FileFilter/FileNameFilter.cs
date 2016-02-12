@@ -7,7 +7,7 @@ using CK.Core;
 using System.IO;
 using System.Xml.Linq;
 
-namespace CK.FileFilter
+namespace CK.Globbing
 {
     /// <summary>
     /// Describes a filter regarding the file names.

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
-namespace CK.FileFilter
+namespace CK.Globbing
 {
     internal class TrackedStream : Stream
     {

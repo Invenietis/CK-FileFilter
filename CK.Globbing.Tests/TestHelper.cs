@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 using NUnit.Framework;
 
-namespace CK.FileFilter.Tests
+namespace CK.Globbing.Tests
 {
 
     public class TestHelper

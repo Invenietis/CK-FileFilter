@@ -7,12 +7,12 @@ using System.IO;
 using CK.Core;
 using System.IO.Compression;
 
-namespace CK.FileFilter.Tests
+namespace CK.Globbing.Tests
 {
     [TestFixture]
     public class ZipTests
     {
-        static string ZipTestsFolder = Path.Combine( TestHelper.SolutionDir, @"CK.FileFilter.Tests\ZipTests\" );
+        static string ZipTestsFolder = Path.Combine( TestHelper.SolutionDir, @"CK.Globbing.Tests\ZipTests\" );
 
         [Test]
         public void writing_and_reading_a_very_small_zip_file()

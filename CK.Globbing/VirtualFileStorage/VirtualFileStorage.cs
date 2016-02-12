@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using CK.Core;
 
-namespace CK.FileFilter
+namespace CK.Globbing
 {
     public class VirtualFileStorage : IVirtualFileStorage
     {

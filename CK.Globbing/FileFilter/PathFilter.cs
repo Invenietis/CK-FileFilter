@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Text.RegularExpressions;
 using CK.Core;
 
-namespace CK.FileFilter
+namespace CK.Globbing
 {
     /// <summary>
     /// Describes an include/exclude pattern.

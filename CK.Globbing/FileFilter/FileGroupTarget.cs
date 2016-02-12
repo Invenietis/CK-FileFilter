@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 using System.Xml.Linq;
 using System.IO;
 
-namespace CK.FileFilter
+namespace CK.Globbing
 {
 
     /// <summary>

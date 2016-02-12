@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Cake.Core.Annotations;
-using CK.FileFilter;
+using CK.Globbing;
 
 namespace Cake.CK.Pack
 {

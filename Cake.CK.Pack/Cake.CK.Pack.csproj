@@ -61,9 +61,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CK.FileFilter\CK.FileFilter.csproj">
+    <ProjectReference Include="..\CK.Globbing\CK.Globbing.csproj">
       <Project>{ed4782cb-79ed-41df-814a-be33146c6824}</Project>
-      <Name>CK.FileFilter</Name>
+      <Name>CK.Globbing</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

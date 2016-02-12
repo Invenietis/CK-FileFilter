@@ -7,7 +7,7 @@ using System.Diagnostics;
 using CK.Core;
 using System.IO.Compression;
 
-namespace CK.FileFilter
+namespace CK.Globbing
 {
     /// <summary>
     /// This can be used only for a file. It can not be used to handle recursive files (zip in a zip).

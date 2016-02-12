@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 using CK.Core;
 
-namespace CK.FileFilter
+namespace CK.Globbing
 {
     internal class VirtualFileStorageDriverRoot : VirtualFileStorageDriver
     {
