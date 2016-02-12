@@ -33,8 +33,6 @@ namespace CodeCake
                                         .Projects
                                         .Where( p => p.Name != "CodeCakeBuilder"
                                                      && !p.Path.Segments.Contains( "Tests" ) );
-            string secureFilePassPhrase = null;
-
             SimpleRepositoryInfo gitInfo = null;
             string configuration = null;
 
@@ -106,7 +104,6 @@ namespace CodeCake
                 } );
 
             Task( "Create-NuGet-Packages" )
-                .IsDependentOn( "Sign-Assemblies" )
                 .IsDependentOn( "Unit-Testing" )
                 .Does( () =>
                 {

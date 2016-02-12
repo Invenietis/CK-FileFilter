@@ -73,7 +73,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Bootstrap.ps1" />
-    <None Include="Invenietis-Authenticode.pfx.enc" />
     <None Include="NuSpec\Cake.CK.Pack.nuspec" />
     <None Include="NuSpec\CK.Globbing.nuspec" />
     <None Include="NuSpec\nuspec.xsd">
