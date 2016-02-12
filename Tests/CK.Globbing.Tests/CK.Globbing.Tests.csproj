@@ -35,10 +35,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CK.Core">
-      <HintPath>..\packages\CK.Core.4.2.0\lib\net45\CK.Core.dll</HintPath>
+      <HintPath>..\..\packages\CK.Core.4.2.0\lib\net45\CK.Core.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+      <HintPath>..\..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -69,7 +69,7 @@
     <None Include="ZipTests\src.zip" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CK.Globbing\CK.Globbing.csproj">
+    <ProjectReference Include="..\..\CK.Globbing\CK.Globbing.csproj">
       <Project>{ed4782cb-79ed-41df-814a-be33146c6824}</Project>
       <Name>CK.Globbing</Name>
     </ProjectReference>
