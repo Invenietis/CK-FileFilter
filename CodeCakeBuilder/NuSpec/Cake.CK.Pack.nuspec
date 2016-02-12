@@ -20,9 +20,9 @@
     <developmentDependency>false</developmentDependency>
     <releaseNotes>https://github.com/Invenietis/ck-globbing/releases</releaseNotes>
     <dependencies>
-      <dependency id="CK.Core" version="$version$" />
-      <dependency id="CK.Globbing" version="$version$" />
-      <dependency id="Cake.Common" version="$version$" />
+      <dependency id="CK.Core" version="4.3.0" />
+      <dependency id="CK.Globbing" version="0.8.0" />
+      <dependency id="Cake.Common" version="0.8.0" />
     </dependencies>
   </metadata>
   <files>
