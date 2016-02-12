@@ -21,7 +21,6 @@
     <releaseNotes>https://github.com/Invenietis/ck-globbing/releases</releaseNotes>
     <dependencies>
       <dependency id="CK.Core" version="$version$" />
-      <dependency id="System.IO.Compression" version="$version$" />
     </dependencies>
   </metadata>
   <files>
