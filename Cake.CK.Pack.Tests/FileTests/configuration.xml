@@ -1,0 +1,23 @@
+﻿<Configuration>
+  <FileGroupTarget Target="/Target1">
+    <Filter Root="ForTarget1">
+      <Include Name="/**.txt" />
+    </Filter>
+  </FileGroupTarget>
+  <FileGroupTarget Target="/Target2">
+    <Filter Root="ForTarget2">
+      <Exclude Name="/**.txt" />
+    </Filter>
+  </FileGroupTarget>
+  <FileGroupTarget Target="/Target3">
+    <Filter Root="ForTarget3">
+      <Exclude Name="/File6.txt" />
+      <Include Name="/**.txt" />
+    </Filter>
+  </FileGroupTarget>
+  <FileGroupTarget Target="/">
+    <Filter Root="/">
+      <Include Name="/RootFile.txt" />
+    </Filter>
+  </FileGroupTarget>
+</Configuration>

@@ -50,7 +50,7 @@ namespace CK.FileFilter
             Filters = new ObservableCollection<FileNameFilter>();
         }
 
-        internal FileGroupTarget( XElement e )
+        public FileGroupTarget( XElement e )
             : this()
         {
             FromXml( e );
@@ -224,7 +224,5 @@ namespace CK.FileFilter
         }
 
     }
-
-
 }
 
