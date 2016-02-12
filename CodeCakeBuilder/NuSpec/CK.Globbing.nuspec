@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata minClientVersion="2.8">
+    <id>CK.Globbing</id>
+    <version>$version$</version>
+    <title>CK.Globbing</title>
+    <authors>Invenietis</authors>
+    <owners>Invenietis</owners>
+    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+    <projectUrl>https://github.com/Invenietis/ck-globbing</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>
+      Utility classes for globbing and file filtering.
+    </summary>
+    <description>
+      Utility classes for globbing and file filtering.
+    </description>
+    <language>en-US</language>
+    <tags>CK, glob, globbing, file, filtering</tags>
+    <developmentDependency>false</developmentDependency>
+    <releaseNotes>https://github.com/Invenietis/ck-globbing/releases</releaseNotes>
+    <dependencies>
+      <dependency id="CK.Core" version="$version$" />
+      <dependency id="System.IO.Compression" version="$version$" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="CK.Globbing\bin\{{configuration}}\CK.Globbing.dll" target="lib\net45" />
+    <file src="CK.Globbing\bin\{{configuration}}\CK.Globbing.pdb" target="lib\net45" />
+    <file src="CK.Globbing\bin\{{configuration}}\CK.Globbing.xml" target="lib\net45" />
+  </files>
+
+</package>
