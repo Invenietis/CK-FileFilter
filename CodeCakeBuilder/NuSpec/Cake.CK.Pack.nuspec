@@ -21,7 +21,7 @@
     <releaseNotes>https://github.com/Invenietis/ck-globbing/releases</releaseNotes>
     <dependencies>
       <dependency id="CK.Core" version="4.3.0" />
-      <dependency id="CK.Globbing" version="0.8.0" />
+      <dependency id="CK.Globbing" version="0.1.0" />
       <dependency id="Cake.Common" version="0.8.0" />
     </dependencies>
   </metadata>
