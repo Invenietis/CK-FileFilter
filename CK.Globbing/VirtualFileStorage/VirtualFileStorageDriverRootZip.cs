@@ -32,7 +32,7 @@ namespace CK.Globbing
                 Stream s = e.Open();
                 return new TrackedStream( Storage, s );
                 #else
-                return e.OpenReader();
+                return e.Open();
                 #endif
             }
             throw new FileNotFoundException( "Unable to find file in " + RootPath, relativePath );

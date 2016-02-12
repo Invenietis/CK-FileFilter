@@ -26,7 +26,6 @@
   <files>
     <file src="CK.Globbing\bin\{{configuration}}\CK.Globbing.dll" target="lib\net45" />
     <file src="CK.Globbing\bin\{{configuration}}\CK.Globbing.pdb" target="lib\net45" />
-    <file src="CK.Globbing\bin\{{configuration}}\CK.Globbing.xml" target="lib\net45" />
   </files>
 
 </package>

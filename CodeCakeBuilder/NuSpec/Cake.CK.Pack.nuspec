@@ -28,7 +28,6 @@
   <files>
     <file src="Cake.CK.Pack\bin\{{configuration}}\Cake.CK.Pack.dll" target="lib\net45" />
     <file src="Cake.CK.Pack\bin\{{configuration}}\Cake.CK.Pack.pdb" target="lib\net45" />
-    <file src="Cake.CK.Pack\bin\{{configuration}}\Cake.CK.Pack.xml" target="lib\net45" />
   </files>
 
 </package>
