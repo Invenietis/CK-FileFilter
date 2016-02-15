@@ -5,6 +5,9 @@ using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Cake.Core;
+using Cake.Core.Diagnostics;
+using Cake.Core.IO;
 using CK.Globbing;
 using NUnit.Framework;
 
@@ -15,6 +18,65 @@ namespace Cake.CK.Pack.Tests
     {
         private string testDirectory = @".\FileTests\";
         private string outputDirectory = @".\";
+
+        private class CakeContext : ICakeContext
+        {
+            public ICakeArguments Arguments
+            {
+                get
+                {
+                    throw new NotImplementedException();
+                }
+            }
+
+            public ICakeEnvironment Environment
+            {
+                get
+                {
+                    throw new NotImplementedException();
+                }
+            }
+
+            public IFileSystem FileSystem
+            {
+                get
+                {
+                    throw new NotImplementedException();
+                }
+            }
+
+            public IGlobber Globber
+            {
+                get
+                {
+                    throw new NotImplementedException();
+                }
+            }
+
+            public ICakeLog Log
+            {
+                get
+                {
+                    throw new NotImplementedException();
+                }
+            }
+
+            public IProcessRunner ProcessRunner
+            {
+                get
+                {
+                    throw new NotImplementedException();
+                }
+            }
+
+            public IRegistry Registry
+            {
+                get
+                {
+                    throw new NotImplementedException();
+                }
+            }
+        }
 
         private void CheckZipContent( string zipFilePath, IEnumerable<string> includedFiles )
         {
@@ -38,12 +100,12 @@ namespace Cake.CK.Pack.Tests
         [Test]
         public void PackFromConfigurationFile()
         {
-            var config = Path.Combine(testDirectory, "configuration.xml");
+            var config = System.IO.Path.Combine(testDirectory, "configuration.xml");
             var outputFileName = "PackFromConfigurationFile.zip";
 
-            var output = CKPackAliases.Pack( config, outputDirectory, outputFileName );
+            var output = CKPackAliases.Pack( new CakeContext(), config, outputDirectory, outputFileName );
 
-            var expectedOutput =  Path.Combine( outputDirectory, outputFileName );
+            var expectedOutput =  System.IO.Path.Combine( outputDirectory, outputFileName );
 
             Assert.AreEqual( output, expectedOutput, String.Format( "Created zip - Expected output path: {0}, get: {1}", expectedOutput, output ) );
 
@@ -90,9 +152,9 @@ namespace Cake.CK.Pack.Tests
 
             var outputFileName = "PackFromList.zip";
 
-            var output = CKPackAliases.Pack( testDirectory, outputDirectory, outputFileName, targets );
+            var output = CKPackAliases.Pack( new CakeContext(), testDirectory, outputDirectory, outputFileName, targets );
 
-            var expectedOutput =  Path.Combine( outputDirectory, outputFileName );
+            var expectedOutput = System.IO.Path.Combine( outputDirectory, outputFileName );
 
             Assert.AreEqual( output, expectedOutput, String.Format( "Created zip - Expected output path: {0}, get: {1}", expectedOutput, output ) );
 
