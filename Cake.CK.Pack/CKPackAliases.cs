@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Cake.Core;
 using Cake.Core.Annotations;
 using CK.Globbing;
 
@@ -15,14 +16,17 @@ namespace Cake.CK.Pack
     public static class CKPackAliases
     {
         [CakeMethodAlias]
-        public static string Pack( string rootDirectory, string outputDirectory, string outputFileName, IEnumerable<FileGroupTarget> targets )
+        public static string Pack( this ICakeContext context, string rootDirectory, string outputDirectory, string outputFileName, IEnumerable<FileGroupTarget> targets )
         {
+            if( context == null ) throw new ArgumentNullException( "context" );
             return Pack( rootDirectory, BuildOutputFileName( outputDirectory, outputFileName ), targets );
         }
 
         [CakeMethodAlias]
-        public static string Pack( string configurationFile, string outputDirectory, string outputFileName )
+        public static string Pack( this ICakeContext context, string configurationFile, string outputDirectory, string outputFileName )
         {
+            if( context == null ) throw new ArgumentNullException( "context" );
+
             if( !File.Exists( configurationFile ) ) throw new FileNotFoundException( $"File {configurationFile}: not found" );
 
             var xDoc = XDocument.Load( configurationFile );
