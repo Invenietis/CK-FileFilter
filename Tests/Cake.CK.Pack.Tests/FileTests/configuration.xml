@@ -2,6 +2,7 @@
   <FileGroupTarget Target="/Target1">
     <Filter Root="ForTarget1">
       <Include Name="/**.txt" />
+      <Include Name="/**.zip" />
     </Filter>
   </FileGroupTarget>
   <FileGroupTarget Target="/Target2">

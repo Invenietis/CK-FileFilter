@@ -1,0 +1,7 @@
+﻿<Configuration>
+  <FileGroupTarget Target="/">
+    <Filter Root="ForTarget1/ZipContent.zip/ZipContent">
+      <Include Name="/**.txt" />
+    </Filter>
+  </FileGroupTarget>
+</Configuration>
