@@ -6,8 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Cake.Common.IO.Paths;
 using Cake.Core;
 using Cake.Core.Annotations;
+using CK.Core;
 using CK.Globbing;
 
 namespace Cake.CK.Pack
@@ -16,14 +18,37 @@ namespace Cake.CK.Pack
     public static class CKPackAliases
     {
         [CakeMethodAlias]
-        public static string Pack( this ICakeContext context, string rootDirectory, string outputDirectory, string outputFileName, IEnumerable<FileGroupTarget> targets )
+        public static void Pack( this ICakeContext context, IEnumerable<FileGroupTarget> targets, string outputFile, bool handleZip = false, bool handleNuPkg = false )
         {
             if( context == null ) throw new ArgumentNullException( "context" );
-            return Pack( rootDirectory, BuildOutputFileName( outputDirectory, outputFileName ), targets );
+
+            var rootDirectory = FileUtil.NormalizePathSeparator(context.Environment.WorkingDirectory.FullPath, true);
+
+            if( File.Exists( outputFile ) ) File.Delete( outputFile );
+
+            using( IVirtualFileStorage fs = new VirtualFileStorage( handleZip, handleNuPkg ) )
+            {
+                using( var zip = ZipFile.Open( outputFile, ZipArchiveMode.Create ) )
+                {
+                    foreach( var t in targets )
+                    {
+                        foreach( var f in t.IncludedFiles( rootDirectory, fs ) )
+                        {
+                            var sourceFile = Path.Combine(rootDirectory, f.FilePath);
+                            var destinationFile = Path.Combine(t.Target.Substring(1), f.FinalFilePath);
+
+                            using( var entry = zip.CreateEntry( destinationFile ).Open() )
+                            {
+                                fs.OpenRead( sourceFile ).CopyTo( entry );
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         [CakeMethodAlias]
-        public static string Pack( this ICakeContext context, string configurationFile, string outputDirectory, string outputFileName )
+        public static IEnumerable<FileGroupTarget> GetTargetsFromConfigurationFile( this ICakeContext context, string configurationFile )
         {
             if( context == null ) throw new ArgumentNullException( "context" );
 
@@ -37,43 +62,7 @@ namespace Cake.CK.Pack
 
             var list = targets.Select(x => new FileGroupTarget(x));
 
-            return Pack( ExtractRootDirectoryFromConfigurationFile( configurationFile ), BuildOutputFileName( outputDirectory, outputFileName ), list );
-        }
-
-        private static string BuildOutputFileName( string outputDirectory, string outputFileName )
-        {
-            return Path.Combine( outputDirectory, outputFileName );
-        }
-
-        private static string ExtractRootDirectoryFromConfigurationFile( string filePath )
-        {
-            var lastSeparator = filePath.LastIndexOf("\\");
-
-            return filePath.Substring( 0, lastSeparator + 1 );
-        }
-
-        private static string Pack( string rootDirectory, string outputFilePath, IEnumerable<FileGroupTarget> targets )
-        {
-            if( File.Exists( outputFilePath ) ) File.Delete( outputFilePath );
-
-            using( IVirtualFileStorage fs = new VirtualFileStorage( true, false ) )
-            {
-                using( var zip = ZipFile.Open( outputFilePath, ZipArchiveMode.Create ) )
-                {
-                    foreach( var t in targets )
-                    {
-                        foreach( var f in t.IncludedFiles( rootDirectory, fs ) )
-                        {
-                            var sourceFile = Path.Combine(rootDirectory, f.FilePath);
-                            var destinationFile = Path.Combine(t.Target.Substring(1), f.FinalFilePath);
-
-                            zip.CreateEntryFromFile( sourceFile, destinationFile );
-                        }
-                    }
-                }
-            }
-
-            return outputFilePath;
+            return list;
         }
     }
 }

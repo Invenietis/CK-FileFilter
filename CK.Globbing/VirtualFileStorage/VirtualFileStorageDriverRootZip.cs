@@ -14,13 +14,13 @@ namespace CK.Globbing
     /// </summary>
     internal class VirtualFileStorageDriverRootZip : VirtualFileStorageDriver
     {
-        ZipArchive _file;
+        readonly ZipArchive _file;
 
         public VirtualFileStorageDriverRootZip( VirtualFileStorage storage, VirtualFileStorageDriver parent, string rootPath )
             : base( storage, parent, rootPath )
         {
             Debug.Assert( rootPath.EndsWith( "\\" ) );
-            _file = new ZipArchive( File.OpenRead( rootPath.Substring( 0, rootPath.Length - 1 ) ) ); 
+            _file = new ZipArchive( File.OpenRead( rootPath.Substring( 0, rootPath.Length - 1 ) ) );
         }
 
         public override Stream OpenRead( string relativePath )
@@ -49,6 +49,8 @@ namespace CK.Globbing
 
         public override void Dispose()
         {
+            Debug.Assert( _file != null, "File in VirtualFileStorageDriverRootZip Dispose should not be null" );
+
             _file.Dispose();
         }
     }

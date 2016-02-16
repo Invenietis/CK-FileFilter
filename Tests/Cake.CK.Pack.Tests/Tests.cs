@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Threading.Tasks;
 using Cake.Core;
 using Cake.Core.Diagnostics;
-using Cake.Core.IO;
+using CK.Core;
 using CK.Globbing;
 using NUnit.Framework;
 
@@ -16,11 +17,81 @@ namespace Cake.CK.Pack.Tests
     [TestFixture]
     public class Tests
     {
-        private string testDirectory = @".\FileTests\";
-        private string outputDirectory = @".\";
+        private ICakeContext _context;
+        private string _rootDirectory;
+        private string _testDirectory;
+        private string _outputDirectory;
+
+        [SetUp]
+        public void Setup()
+        {
+            _rootDirectory = Environment.CurrentDirectory;
+            _testDirectory = Path.Combine( _rootDirectory, "FileTests");
+            _outputDirectory = Path.Combine( _rootDirectory, "Output" );
+
+            if( !Directory.Exists( _outputDirectory ) ) Directory.CreateDirectory( _outputDirectory );
+
+            _context = new CakeContext();
+            _context.Environment.WorkingDirectory = _testDirectory;
+        }
+
+        private class CakeEnvironment : ICakeEnvironment
+        {
+            private Core.IO.DirectoryPath _workingDir;
+
+            public Core.IO.DirectoryPath WorkingDirectory
+            {
+                get
+                {
+                    return _workingDir;
+                }
+
+                set
+                {
+                    _workingDir = value;
+                }
+            }
+
+            public Core.IO.DirectoryPath GetApplicationRoot()
+            {
+                throw new NotImplementedException();
+            }
+
+            public string GetEnvironmentVariable( string variable )
+            {
+                throw new NotImplementedException();
+            }
+
+            public IDictionary<string, string> GetEnvironmentVariables()
+            {
+                throw new NotImplementedException();
+            }
+
+            public Core.IO.DirectoryPath GetSpecialPath( Core.IO.SpecialPath path )
+            {
+                throw new NotImplementedException();
+            }
+
+            public FrameworkName GetTargetFramework()
+            {
+                throw new NotImplementedException();
+            }
+
+            public bool Is64BitOperativeSystem()
+            {
+                throw new NotImplementedException();
+            }
+
+            public bool IsUnix()
+            {
+                throw new NotImplementedException();
+            }
+        }
 
         private class CakeContext : ICakeContext
         {
+            private ICakeEnvironment _env = new CakeEnvironment();
+
             public ICakeArguments Arguments
             {
                 get
@@ -33,11 +104,11 @@ namespace Cake.CK.Pack.Tests
             {
                 get
                 {
-                    throw new NotImplementedException();
+                    return _env;
                 }
             }
 
-            public IFileSystem FileSystem
+            public Core.IO.IFileSystem FileSystem
             {
                 get
                 {
@@ -45,7 +116,7 @@ namespace Cake.CK.Pack.Tests
                 }
             }
 
-            public IGlobber Globber
+            public Core.IO.IGlobber Globber
             {
                 get
                 {
@@ -61,7 +132,7 @@ namespace Cake.CK.Pack.Tests
                 }
             }
 
-            public IProcessRunner ProcessRunner
+            public Core.IO.IProcessRunner ProcessRunner
             {
                 get
                 {
@@ -69,7 +140,7 @@ namespace Cake.CK.Pack.Tests
                 }
             }
 
-            public IRegistry Registry
+            public Core.IO.IRegistry Registry
             {
                 get
                 {
@@ -98,23 +169,37 @@ namespace Cake.CK.Pack.Tests
         }
 
         [Test]
+        public void ExploreZip()
+        {
+            var config = Path.Combine(_testDirectory, "configuration_zip.xml");
+            var outputFile = Path.Combine(_outputDirectory, "ExploreZip.zip");
+            var targets = CKPackAliases.GetTargetsFromConfigurationFile(_context, config);
+
+            CKPackAliases.Pack( _context, targets, outputFile, true );
+
+            CheckZipContent( outputFile, new[] {
+                @"Sub1\ZipFileSub1.txt",
+                @"Sub1\Sub2\ZipFileSub2.txt",
+                @"Sub1\Sub2\ZipFileSub2-2.txt"
+            } );
+        }
+
+        [Test]
         public void PackFromConfigurationFile()
         {
-            var config = System.IO.Path.Combine(testDirectory, "configuration.xml");
-            var outputFileName = "PackFromConfigurationFile.zip";
+            var config = Path.Combine(_testDirectory, "configuration.xml");
+            var outputFile = Path.Combine(_outputDirectory, "PackFromConfigurationFile.zip");
+            var targets = CKPackAliases.GetTargetsFromConfigurationFile(_context, config);
 
-            var output = CKPackAliases.Pack( new CakeContext(), config, outputDirectory, outputFileName );
+            CKPackAliases.Pack( _context, targets, outputFile );
 
-            var expectedOutput =  System.IO.Path.Combine( outputDirectory, outputFileName );
+            Assert.IsTrue( File.Exists( outputFile ), "Created zip - Output file not found" );
 
-            Assert.AreEqual( output, expectedOutput, String.Format( "Created zip - Expected output path: {0}, get: {1}", expectedOutput, output ) );
-
-            Assert.IsTrue( File.Exists( output ), "Created zip - Output file not found" );
-
-            CheckZipContent( output, new[] {
+            CheckZipContent( outputFile, new[] {
                 "RootFile.txt",
                 @"Target1\File1.txt",
                 @"Target1\File2.txt",
+                @"Target1\ZipContent.zip",
                 @"Target3\File5.txt"
             } );
         }
@@ -150,17 +235,13 @@ namespace Cake.CK.Pack.Tests
 
             var targets = new[] { t1, t2, t3, t4 };
 
-            var outputFileName = "PackFromList.zip";
+            var outputFile = Path.Combine(_outputDirectory, "PackFromList.zip");
 
-            var output = CKPackAliases.Pack( new CakeContext(), testDirectory, outputDirectory, outputFileName, targets );
+            CKPackAliases.Pack( _context, targets, outputFile );
 
-            var expectedOutput = System.IO.Path.Combine( outputDirectory, outputFileName );
+            Assert.IsTrue( File.Exists( outputFile ), "Created zip - Output file not found" );
 
-            Assert.AreEqual( output, expectedOutput, String.Format( "Created zip - Expected output path: {0}, get: {1}", expectedOutput, output ) );
-
-            Assert.IsTrue( File.Exists( output ), "Created zip - Output file not found" );
-
-            CheckZipContent( output, new[] {
+            CheckZipContent( outputFile, new[] {
                 "RootFile.txt",
                 @"Target1\File1.txt",
                 @"Target1\File2.txt",
