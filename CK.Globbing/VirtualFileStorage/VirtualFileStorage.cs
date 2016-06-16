@@ -93,9 +93,9 @@ namespace CK.Globbing
             int i = _drivers.Count;
             while( --i > 0 ) _drivers[i].Dispose();
             _drivers.Clear();
-            #if DEBUG
-            Debug.Assert( _countOpenStream == 0 );
-            #endif
+            //#if DEBUG
+            //Debug.Assert( _countOpenStream == 0 );
+            //#endif
         }
 
     }
