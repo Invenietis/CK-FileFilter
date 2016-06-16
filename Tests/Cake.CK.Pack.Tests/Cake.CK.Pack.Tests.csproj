@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Cake.CK.Pack.Tests</RootNamespace>
     <AssemblyName>Cake.CK.Pack.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -31,16 +31,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Cake.Common, Version=0.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Cake.Common.0.8.0\lib\net45\Cake.Common.dll</HintPath>
+    <Reference Include="Cake.Common, Version=0.13.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Cake.Common.0.13.0\lib\net45\Cake.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Cake.Core, Version=0.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Cake.Core.0.8.0\lib\net45\Cake.Core.dll</HintPath>
+    <Reference Include="Cake.Core, Version=0.13.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Cake.Core.0.13.0\lib\net45\Cake.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CK.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=edfa2f62fc978217, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CK.Core.4.3.0\lib\net45\CK.Core.dll</HintPath>
+    <Reference Include="CK.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=731c291b31fb8d27, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CK.Core.5.0.0-e01\lib\net45\CK.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CK.Text, Version=1.0.0.0, Culture=neutral, PublicKeyToken=731c291b31fb8d27, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CK.Text.5.0.0-e01\lib\net45\CK.Text.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="nunit.core, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
