@@ -20,7 +20,7 @@
     <developmentDependency>false</developmentDependency>
     <releaseNotes>https://github.com/Invenietis/ck-globbing/releases</releaseNotes>
     <dependencies>
-      <dependency id="CK.Core" version="4.3.0" />
+      <dependency id="CK.Core" version="5.0.0-e01" />
     </dependencies>
   </metadata>
   <files>
