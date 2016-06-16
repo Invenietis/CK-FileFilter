@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Cake.Core;
 using Cake.Core.Diagnostics;
+using Cake.Core.Tooling;
 using CK.Core;
 using CK.Globbing;
 using NUnit.Framework;
@@ -147,6 +148,8 @@ namespace Cake.CK.Pack.Tests
                     throw new NotImplementedException();
                 }
             }
+
+            public IToolLocator Tools { get; }
         }
 
         private void CheckZipContent( string zipFilePath, IEnumerable<string> includedFiles )

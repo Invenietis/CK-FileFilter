@@ -101,7 +101,7 @@ namespace CK.Globbing
             }
             if( nbSlot == 0 ) return x1;
             int len = x.Length - nbSlot;
-            if( len == 0 ) return Util.EmptyStringArray;
+            if( len == 0 ) return Util.Array.Empty<string>();
             string[] xx = new string[len];
             Array.Copy( x, 0, xx, 0, minPos );
             Debug.Assert( ReferenceEquals( x[minPos], _sMark ) );
