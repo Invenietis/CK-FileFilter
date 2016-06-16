@@ -24,8 +24,8 @@ namespace CK.Globbing
             /// will remain null.</param>
             public FileNameList( bool withDirectories )
             {
-                _files = new CKReadOnlyListOnIList<string>( Util.EmptyStringArray );
-                if( withDirectories ) _dir = new CKReadOnlyListOnIList<string>( Util.EmptyStringArray );
+                _files = new CKReadOnlyListOnIList<string>( Util.Array.Empty<string>() );
+                if( withDirectories ) _dir = new CKReadOnlyListOnIList<string>( Util.Array.Empty<string>() );
             }
 
 
@@ -42,7 +42,7 @@ namespace CK.Globbing
                 Debug.Assert( mustSort || files.IsSortedStrict( StringComparer.Ordinal.Compare ) );
                 _files = new CKReadOnlyListOnIList<string>( files.ToArray() );
                 if( prefix != null && prefix.Length > 0 )
-                    for( int i=0; i < _files.Count; ++i ) _files.Inner[i] = prefix + _files[i];
+                    for( int i=0; i < _files.Count; ++i ) _files.Values[i] = prefix + _files[i];
             }
 
             /// <summary>
@@ -69,7 +69,7 @@ namespace CK.Globbing
             /// <returns>A negative value if not found (it is the result of the <see cref="Array.BinarySearch"/>).</returns>
             public int IndexOfFile( string fName )
             {
-                return Array.BinarySearch( (string[])_files.Inner, fName, StringComparer.Ordinal );
+                return Array.BinarySearch( (string[])_files.Values, fName, StringComparer.Ordinal );
             }
 
             /// <summary>
@@ -78,8 +78,8 @@ namespace CK.Globbing
             /// <param name="x">Another <see cref="FileNameList"/> to combine to this object.</param>
             public void Add( FileNameList x )
             {
-                _files.Inner = SortedStringArray.SortedArrayAdd( (string[])_files.Inner, (string[])x._files.Inner, StringComparer.Ordinal.Compare );
-                if( _dir != null ) _dir.Inner = SortedStringArray.SortedArrayAdd( (string[])_dir.Inner, (string[])x._dir.Inner, StringComparer.Ordinal.Compare );
+                _files.Values = SortedStringArray.SortedArrayAdd( (string[])_files.Values, (string[])x._files.Values, StringComparer.Ordinal.Compare );
+                if( _dir != null ) _dir.Values = SortedStringArray.SortedArrayAdd( (string[])_dir.Values, (string[])x._dir.Values, StringComparer.Ordinal.Compare );
             }
 
             /// <summary>
@@ -89,8 +89,8 @@ namespace CK.Globbing
             /// this <see cref="FileNameList"/>.</param>
             public void Remove( FileNameList x )
             {
-                _files.Inner = SortedStringArray.SortedArrayRemove( (string[])_files.Inner, (string[])x._files.Inner, StringComparer.Ordinal.Compare );
-                if( _dir != null ) _dir.Inner = SortedStringArray.SortedArrayRemove( (string[])_dir.Inner, (string[])x._dir.Inner, StringComparer.Ordinal.Compare );
+                _files.Values = SortedStringArray.SortedArrayRemove( (string[])_files.Values, (string[])x._files.Values, StringComparer.Ordinal.Compare );
+                if( _dir != null ) _dir.Values = SortedStringArray.SortedArrayRemove( (string[])_dir.Values, (string[])x._dir.Values, StringComparer.Ordinal.Compare );
             }
 
             internal FileNameList( IEnumerable<string> files, IEnumerable<string> dir )

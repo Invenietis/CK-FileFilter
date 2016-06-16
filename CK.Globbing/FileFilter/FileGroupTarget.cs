@@ -118,9 +118,9 @@ namespace CK.Globbing
         }
 
         internal void FromXml( XElement e )
-        {
+        {    
             Target = e.Attribute( "Target" ).Value;
-            MatchBehavior = e.GetAttributeEnum<FileFilterMatchBehavior>( "MatchBehavior", FileFilterMatchBehavior.Default );
+            MatchBehavior = e.AttributeEnum<FileFilterMatchBehavior>( "MatchBehavior", FileFilterMatchBehavior.Default );
             Filters.Clear();
             Filters.AddRange( from f in e.Elements( "Filter" ) select new FileNameFilter( f ) );
         }
