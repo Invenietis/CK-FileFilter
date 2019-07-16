@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +7,7 @@ using CK.Core;
 using System.Text.RegularExpressions;
 using System.Runtime.CompilerServices;
 using System.IO;
+using static CK.Testing.BasicTestHelper;
 
 namespace CK.Globbing.Tests
 {
@@ -235,7 +236,7 @@ namespace CK.Globbing.Tests
         [Test]
         public void generates_files_from_this_solution()
         {
-            foreach( var f in Directory.GetFiles( TestHelper.SolutionDir, "*", SearchOption.AllDirectories ) )
+            foreach( var f in Directory.GetFiles( TestHelper.SolutionFolder, "*", SearchOption.AllDirectories ) )
             {
                 Console.WriteLine( @"""{0}"",", f.Replace( "\\", "\\\\" ) );
             }

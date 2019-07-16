@@ -1,22 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CK.Globbing", "CK.Globbing\CK.Globbing.csproj", "{ED4782CB-79ED-41DF-814A-BE33146C6824}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CK.Globbing.Tests", "Tests\CK.Globbing.Tests\CK.Globbing.Tests.csproj", "{9D916D10-859E-4CE3-96D3-40E122FFBE09}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6C306988-3605-4D70-BC42-F8FE4606D46B}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.CK.Pack", "Cake.CK.Pack\Cake.CK.Pack.csproj", "{C4E4712B-4AC0-4DCC-AC62-DCB9E22D6218}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.CK.Pack.Tests", "Tests\Cake.CK.Pack.Tests\Cake.CK.Pack.Tests.csproj", "{AABB9356-C75A-4032-A745-E253C5A10724}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeCakeBuilder", "CodeCakeBuilder\CodeCakeBuilder.csproj", "{964DDC6C-AE93-456A-B150-806DEB8E7FF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeCakeBuilder", "CodeCakeBuilder\CodeCakeBuilder.csproj", "{964DDC6C-AE93-456A-B150-806DEB8E7FF4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F8F1B95B-411B-4E51-9551-D95E73FC4CB1}"
 EndProject
@@ -27,8 +19,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		LICENSE = LICENSE
 		README.md = README.md
 		RepositoryInfo.xml = RepositoryInfo.xml
-		SharedKey.snk = SharedKey.snk
+		Common\Shared.props = Common\Shared.props
+		Common\SharedKey.snk = Common\SharedKey.snk
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CK.Globbing", "CK.Globbing\CK.Globbing.csproj", "{62EF611F-906F-4ED1-A3CA-EE094CE04330}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.CK.Pack", "Cake.CK.Pack\Cake.CK.Pack.csproj", "{A2033446-28DD-4F09-BA13-659734136885}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CK.Globbing.Tests", "Tests\CK.Globbing.Tests\CK.Globbing.Tests.csproj", "{DD41CA4F-C8F6-443F-B700-3531F126DD59}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.CK.Pack.Tests", "Tests\Cake.CK.Pack.Tests\Cake.CK.Pack.Tests.csproj", "{F0F8A721-FE72-4572-97AB-5F69A414EC47}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,32 +37,35 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{ED4782CB-79ED-41DF-814A-BE33146C6824}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ED4782CB-79ED-41DF-814A-BE33146C6824}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ED4782CB-79ED-41DF-814A-BE33146C6824}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ED4782CB-79ED-41DF-814A-BE33146C6824}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9D916D10-859E-4CE3-96D3-40E122FFBE09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9D916D10-859E-4CE3-96D3-40E122FFBE09}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9D916D10-859E-4CE3-96D3-40E122FFBE09}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9D916D10-859E-4CE3-96D3-40E122FFBE09}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C4E4712B-4AC0-4DCC-AC62-DCB9E22D6218}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C4E4712B-4AC0-4DCC-AC62-DCB9E22D6218}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C4E4712B-4AC0-4DCC-AC62-DCB9E22D6218}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C4E4712B-4AC0-4DCC-AC62-DCB9E22D6218}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AABB9356-C75A-4032-A745-E253C5A10724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AABB9356-C75A-4032-A745-E253C5A10724}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AABB9356-C75A-4032-A745-E253C5A10724}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AABB9356-C75A-4032-A745-E253C5A10724}.Release|Any CPU.Build.0 = Release|Any CPU
 		{964DDC6C-AE93-456A-B150-806DEB8E7FF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{964DDC6C-AE93-456A-B150-806DEB8E7FF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{964DDC6C-AE93-456A-B150-806DEB8E7FF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{964DDC6C-AE93-456A-B150-806DEB8E7FF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62EF611F-906F-4ED1-A3CA-EE094CE04330}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62EF611F-906F-4ED1-A3CA-EE094CE04330}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62EF611F-906F-4ED1-A3CA-EE094CE04330}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62EF611F-906F-4ED1-A3CA-EE094CE04330}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2033446-28DD-4F09-BA13-659734136885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2033446-28DD-4F09-BA13-659734136885}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2033446-28DD-4F09-BA13-659734136885}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2033446-28DD-4F09-BA13-659734136885}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD41CA4F-C8F6-443F-B700-3531F126DD59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD41CA4F-C8F6-443F-B700-3531F126DD59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD41CA4F-C8F6-443F-B700-3531F126DD59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD41CA4F-C8F6-443F-B700-3531F126DD59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0F8A721-FE72-4572-97AB-5F69A414EC47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0F8A721-FE72-4572-97AB-5F69A414EC47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0F8A721-FE72-4572-97AB-5F69A414EC47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0F8A721-FE72-4572-97AB-5F69A414EC47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{9D916D10-859E-4CE3-96D3-40E122FFBE09} = {F8F1B95B-411B-4E51-9551-D95E73FC4CB1}
-		{AABB9356-C75A-4032-A745-E253C5A10724} = {F8F1B95B-411B-4E51-9551-D95E73FC4CB1}
+		{DD41CA4F-C8F6-443F-B700-3531F126DD59} = {F8F1B95B-411B-4E51-9551-D95E73FC4CB1}
+		{F0F8A721-FE72-4572-97AB-5F69A414EC47} = {F8F1B95B-411B-4E51-9551-D95E73FC4CB1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7515C66D-DFFA-437B-B2B6-0609A0B44F54}
 	EndGlobalSection
 EndGlobal
