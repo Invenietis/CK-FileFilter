@@ -53,7 +53,7 @@ namespace CodeCake
 
             Task( "Push-NuGet-Packages" )
                 .IsDependentOn( "Create-NuGet-Packages" )
-                .WithCriteria( () => gitInfo.IsValidRelease )
+                .WithCriteria( () => gitInfo.IsValid )
                 .Does( () =>
                 {
                     globalInfo.PushArtifacts();
