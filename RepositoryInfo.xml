@@ -5,5 +5,7 @@
 
   <Branches>
     <Branch Name="develop" CIVersionMode="LastReleaseBased" VersionName="develop" />
+
   </Branches>
+  <Debug IgnoreDirtyWorkingFolder="true" />
 </RepositoryInfo>
