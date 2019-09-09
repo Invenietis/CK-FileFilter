@@ -11,6 +11,6 @@
   <ItemGroup>
     <PackageReference Include="NuGet.Protocol" Version="5.2.0" />
     <PackageReference Include="NuGet.Credentials" Version="5.2.0" />
-    <PackageReference Include="SimpleGitVersion.Cake" Version="0.40.0" />
+    <PackageReference Include="SimpleGitVersion.Cake" Version="1.0.0" />
   </ItemGroup>
 </Project>
