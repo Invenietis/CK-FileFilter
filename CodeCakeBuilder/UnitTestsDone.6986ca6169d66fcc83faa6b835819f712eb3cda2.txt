@@ -1,2 +1,0 @@
-C:/Dev/CK/CK-Core-Projects/CK-Globbing/Tests/CK.Globbing.Tests/bin/Debug/netcoreapp2.1/CK.Globbing.Tests.dll
-C:/Dev/CK/CK-Core-Projects/CK-Globbing/Tests/Cake.CK.Pack.Tests/bin/Debug/netcoreapp2.1/Cake.CK.Pack.Tests.dll
