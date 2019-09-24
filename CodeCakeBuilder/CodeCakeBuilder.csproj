@@ -9,8 +9,8 @@
     <PackageReference Include="CK.Text" Version="8.0.3" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="NuGet.Protocol" Version="5.2.0" />
-    <PackageReference Include="NuGet.Credentials" Version="5.2.0" />
-    <PackageReference Include="SimpleGitVersion.Cake" Version="1.0.0" />
+    <PackageReference Include="NuGet.Protocol" Version="5.3.0" />
+    <PackageReference Include="NuGet.Credentials" Version="5.3.0" />
+    <PackageReference Include="SimpleGitVersion.Cake" Version="1.0.1" />
   </ItemGroup>
 </Project>
