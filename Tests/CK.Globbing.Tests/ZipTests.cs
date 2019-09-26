@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,13 +6,14 @@ using NUnit.Framework;
 using System.IO;
 using CK.Core;
 using System.IO.Compression;
+using static CK.Testing.BasicTestHelper;
 
 namespace CK.Globbing.Tests
 {
     [TestFixture]
     public class ZipTests
     {
-        static string ZipTestsFolder = Path.Combine( TestHelper.SolutionDir, @"CK.Globbing.Tests\ZipTests\" );
+        static string ZipTestsFolder = Path.Combine( TestHelper.TestProjectFolder, @"ZipTests\" );
 
         [Test]
         public void writing_and_reading_a_very_small_zip_file()

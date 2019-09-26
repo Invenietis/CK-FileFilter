@@ -1,142 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AABB9356-C75A-4032-A745-E253C5A10724}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cake.CK.Pack.Tests</RootNamespace>
-    <AssemblyName>Cake.CK.Pack.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <IsPackable>False</IsPackable>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Cake.Common, Version=0.13.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Cake.Common.0.13.0\lib\net45\Cake.Common.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Cake.Core, Version=0.13.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Cake.Core.0.13.0\lib\net45\Cake.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CK.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=731c291b31fb8d27, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CK.Core.5.0.0-e01\lib\net45\CK.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CK.Text, Version=1.0.0.0, Culture=neutral, PublicKeyToken=731c291b31fb8d27, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CK.Text.5.0.0-e01\lib\net45\CK.Text.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="nunit.core, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\NUnitTestAdapter.2.0.0\lib\nunit.core.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="nunit.core.interfaces, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\NUnitTestAdapter.2.0.0\lib\nunit.core.interfaces.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="nunit.util, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\NUnitTestAdapter.2.0.0\lib\nunit.util.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="NUnit.VisualStudio.TestAdapter, Version=2.0.0.0, Culture=neutral, PublicKeyToken=4cb40d35494691ac, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\NUnitTestAdapter.2.0.0\lib\NUnit.VisualStudio.TestAdapter.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.IO.Compression" />
-    <Reference Include="System.IO.Compression.FileSystem" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <PackageReference Include="CK.Testing" Version="0.12.0" />
+    <PackageReference Include="NUnit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.15.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <ProjectReference Include="..\..\Cake.CK.Pack\Cake.CK.Pack.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="FileTests\configuration_zip.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FileTests\ForTarget1\ZipContent.zip">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="FileTests\configuration.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FileTests\ForTarget3\File5.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FileTests\ForTarget3\File6.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FileTests\RootFile.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FileTests\ForTarget1\File1.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FileTests\ForTarget1\File2.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FileTests\ForTarget2\File3.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FileTests\ForTarget2\File4.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Cake.CK.Pack\Cake.CK.Pack.csproj">
-      <Project>{c4e4712b-4ac0-4dcc-ac62-dcb9e22d6218}</Project>
-      <Name>Cake.CK.Pack</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\CK.Globbing\CK.Globbing.csproj">
-      <Project>{ed4782cb-79ed-41df-814a-be33146c6824}</Project>
-      <Name>CK.Globbing</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

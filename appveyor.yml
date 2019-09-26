@@ -1,14 +1,25 @@
-# Basic appveyor configuration : CodeCakeBuilder does the job.
+
 version: build{build}
 branches:
   only:
-  - master
-  - develop
+    - master
+    - develop
 environment:
-  NUGET_API_KEY:
-    secure: Cx0q/gQZQpP3eDf6H9lzIDpYYki+sGCpruxgDcFUJRoYdpH7l5aDh7afloH3uNLD
+  CODECAKEBUILDER_SECRET_KEY:
+    secure: 8VAzdXgUQaJyFoU3WLf2iPFV/8zPDm9qV4TfOpx8/rg=
 install:
-- ps: CodeCakeBuilder\Bootstrap.ps1
+  - ps: ./CodeCakeBuilder/InstallCredentialProvider.ps1
 build_script:
-- CodeCakeBuilder\bin\Release\CodeCakeBuilder.exe -nointeraction
+  - dotnet run --project CodeCakeBuilder -nointeraction
 test: off
+image: Visual Studio 2019
+clone_folder: C:\CKli-World\CK-Core-Projects\CK-Globbing
+artifacts:
+  - path: '**\*.log'
+    name: Log file
+  - path: '**\*.trx'
+    name: Visual studio test results file
+  - path: '**\Tests\**\TestResult*.xml'
+    name: NUnit tests result files
+  - path: '**Tests\**\Logs\**\*'
+    name: Log files
