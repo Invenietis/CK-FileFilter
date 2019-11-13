@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections.ObjectModel;
-using CK.Core;
 using System.IO;
 using System.Xml.Linq;
 
@@ -50,7 +49,7 @@ namespace CK.Globbing
         {
             if( filter == null ) throw new ArgumentNullException( "filter" );
             string pattern = filter.Path;
-            if( String.IsNullOrWhiteSpace( pattern ) || FileUtil.IndexOfInvalidPathChars( pattern ) > 0 )
+            if( String.IsNullOrWhiteSpace( pattern ) || pattern.IndexOfAny( Path.GetInvalidPathChars() ) > 0 )
             {
                 throw new ArgumentException( "Must be a valid relative path.", "pattern" );
             }

@@ -1,12 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using CK.Core;
 using System.Diagnostics;
 using System.Collections.ObjectModel;
 using System.Xml.Linq;
-using System.IO;
 
 namespace CK.Globbing
 {
@@ -118,11 +115,23 @@ namespace CK.Globbing
         }
 
         internal void FromXml( XElement e )
-        {    
+        {
             Target = e.Attribute( "Target" ).Value;
-            MatchBehavior = e.AttributeEnum<FileFilterMatchBehavior>( "MatchBehavior", FileFilterMatchBehavior.Default );
+            string matchBehavior = e.Attribute( "MatchBehavior" )?.Value;
+            if( matchBehavior != null && Enum.TryParse<FileFilterMatchBehavior>( e.Attribute( "MatchBehavior" ).Value, out var val ) )
+            {
+                MatchBehavior = val;
+            }
+            else
+            {
+                MatchBehavior = FileFilterMatchBehavior.Default;
+            }
             Filters.Clear();
-            Filters.AddRange( from f in e.Elements( "Filter" ) select new FileNameFilter( f ) );
+            foreach( var i in e.Elements( "Filter" )
+                .Select( f => new FileNameFilter( f ) ) )
+            {
+                Filters.Add( i );
+            }
         }
 
         /// <summary>
