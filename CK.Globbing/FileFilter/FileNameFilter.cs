@@ -5,6 +5,7 @@ using System.Text;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Xml.Linq;
+using CK.Core;
 
 namespace CK.Globbing
 {
