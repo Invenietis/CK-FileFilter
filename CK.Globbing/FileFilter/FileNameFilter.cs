@@ -50,7 +50,7 @@ namespace CK.Globbing
         {
             if( filter == null ) throw new ArgumentNullException( "filter" );
             string pattern = filter.Path;
-            if( String.IsNullOrWhiteSpace( pattern ) || pattern.IndexOfAny( Path.GetInvalidPathChars() ) > 0 )
+            if( String.IsNullOrWhiteSpace( pattern ) || FileUtil.IndexOfInvalidPathChars( pattern ) > 0 )
             {
                 throw new ArgumentException( "Must be a valid relative path.", "pattern" );
             }

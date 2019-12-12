@@ -4,6 +4,7 @@ using System.Linq;
 using System.Diagnostics;
 using System.Collections.ObjectModel;
 using System.Xml.Linq;
+using CK.Core;
 
 namespace CK.Globbing
 {
@@ -117,15 +118,7 @@ namespace CK.Globbing
         internal void FromXml( XElement e )
         {
             Target = e.Attribute( "Target" ).Value;
-            string matchBehavior = e.Attribute( "MatchBehavior" )?.Value;
-            if( matchBehavior != null && Enum.TryParse<FileFilterMatchBehavior>( e.Attribute( "MatchBehavior" ).Value, out var val ) )
-            {
-                MatchBehavior = val;
-            }
-            else
-            {
-                MatchBehavior = FileFilterMatchBehavior.Default;
-            }
+            MatchBehavior = e.AttributeEnum<FileFilterMatchBehavior>( "MatchBehavior", FileFilterMatchBehavior.Default );
             Filters.Clear();
             foreach( var i in e.Elements( "Filter" )
                 .Select( f => new FileNameFilter( f ) ) )
