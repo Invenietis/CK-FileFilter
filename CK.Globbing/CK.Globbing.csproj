@@ -4,6 +4,6 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="CK.Core" Version="14.2.1" />
+    <PackageReference Include="CK.Core" Version="0.0.0--03lt15m-local+v15.0.0-a01" />
   </ItemGroup>
 </Project>
