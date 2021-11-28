@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,8 +24,8 @@ namespace CK.Globbing
             /// will remain null.</param>
             public FileNameList( bool withDirectories )
             {
-                _files = new CKReadOnlyListOnIList<string>( Util.Array.Empty<string>() );
-                if( withDirectories ) _dir = new CKReadOnlyListOnIList<string>( Util.Array.Empty<string>() );
+                _files = new CKReadOnlyListOnIList<string>( Array.Empty<string>() );
+                if( withDirectories ) _dir = new CKReadOnlyListOnIList<string>( Array.Empty<string>() );
             }
 
 
