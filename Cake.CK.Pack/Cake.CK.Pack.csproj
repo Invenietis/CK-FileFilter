@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\Common\Shared.props" />
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Cake.Common" Version="0.38.5" />
+    <PackageReference Include="Cake.Common" Version="2.0.0-rc0001" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CK.Globbing\CK.Globbing.csproj" />
