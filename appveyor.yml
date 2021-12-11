@@ -2,15 +2,15 @@
 version: build{build}
 branches:
   only:
-    - master
-    - develop
+    - master-NetCore3
+    - develop-NetCore3
 environment:
   CODECAKEBUILDER_SECRET_KEY:
     secure: 8VAzdXgUQaJyFoU3WLf2iPFV/8zPDm9qV4TfOpx8/rg=
 build_script:
   - dotnet run --project CodeCakeBuilder -nointeraction
 test: off
-image: Visual Studio 2019
+image: Visual Studio 2022
 clone_folder: C:\CKli-World\CK-Core-Projects\CK-Globbing
 on_finish:
   - ps: 'Get-ChildItem -Recurse *.log | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name -DeploymentName ''Log files'' }'
