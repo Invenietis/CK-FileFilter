@@ -1,11 +1,8 @@
 using Cake.Common.IO;
 using Cake.Core;
-using SimpleGitVersion;
 
 namespace CodeCake
 {
-    [AddPath( "CodeCakeBuilder/Tools" )]
-    [AddPath( "packages/**/tools*" )]
     public partial class Build : CodeCakeHost
     {
         public Build()
@@ -26,7 +23,7 @@ namespace CodeCake
                 .Does( () =>
                 {
                     globalInfo.GetDotnetSolution().Clean();
-                    Cake.CleanDirectories( globalInfo.ReleasesFolder );
+                    Cake.CleanDirectories( globalInfo.ReleasesFolder.ToString() );
                 } );
 
             Task( "Build" )
@@ -55,9 +52,9 @@ namespace CodeCake
             Task( "Push-NuGet-Packages" )
                 .IsDependentOn( "Create-NuGet-Packages" )
                 .WithCriteria( () => globalInfo.IsValid )
-                .Does( () =>
+                .Does( async () =>
                 {
-                    globalInfo.PushArtifacts();
+                    await globalInfo.PushArtifactsAsync();
                 } );
 
             // The Default task for this script can be set here.
