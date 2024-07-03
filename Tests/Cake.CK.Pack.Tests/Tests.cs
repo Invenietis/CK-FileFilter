@@ -139,14 +139,14 @@ namespace Cake.CK.Pack.Tests
                 var expectedFilesCount = includedFiles.Count();
                 var foundFilesCount = zipFile.Entries.Count;
 
-                Assert.AreEqual( expectedFilesCount, foundFilesCount, String.Format( "Created zip - {0} files expected, {1} found", expectedFilesCount, foundFilesCount ) );
+                Assert.That( expectedFilesCount == foundFilesCount, String.Format( "Created zip - {0} files expected, {1} found", expectedFilesCount, foundFilesCount ) );
 
                 foreach( var f in includedFiles )
                 {
                     var entry = zipFile.GetEntry(f);
 
-                    Assert.IsNotNull( entry, String.Format( "Created zip - {0}: not found", f ) );
-                    Assert.AreEqual( f, entry.FullName, String.Format( "Created zip - Expected file: {0}, found: {1}", f, entry.FullName ) );
+                    Assert.That( entry != null, String.Format( "Created zip - {0}: not found", f ) );
+                    Assert.That( f == entry.FullName, String.Format( "Created zip - Expected file: {0}, found: {1}", f, entry.FullName ) );
                 }
             }
         }
@@ -176,7 +176,7 @@ namespace Cake.CK.Pack.Tests
 
             CKPackAliases.Pack( _context, targets, outputFile );
 
-            Assert.IsTrue( File.Exists( outputFile ), "Created zip - Output file not found" );
+            Assert.That( File.Exists( outputFile ), "Created zip - Output file not found" );
 
             CheckZipContent( outputFile, new[] {
                 "RootFile.txt",
@@ -222,7 +222,7 @@ namespace Cake.CK.Pack.Tests
 
             CKPackAliases.Pack( _context, targets, outputFile );
 
-            Assert.IsTrue( File.Exists( outputFile ), "Created zip - Output file not found" );
+            Assert.That( File.Exists( outputFile ), "Created zip - Output file not found" );
 
             CheckZipContent( outputFile, new[] {
                 "RootFile.txt",
